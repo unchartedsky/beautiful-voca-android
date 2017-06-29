@@ -1,8 +1,10 @@
-// App module build file:
+// Android instant apps feature-main module build file:
 // https://developer.android.com/topic/instant-apps/getting-started/structure.html?hl=ko
 // 2017.06.29. Richard.
 
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
 
@@ -14,11 +16,13 @@ android {
 
     // Default config.
     defaultConfig {
-        applicationId rootProject.ext.application
         minSdkVersion rootProject.ext.sdk_min
         targetSdkVersion rootProject.ext.sdk_target
         versionCode rootProject.ext.application_version_code
         versionName rootProject.ext.application_version
+
+        // Test runner.
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     // Build options.
@@ -45,12 +49,19 @@ android {
 
 dependencies {
 
-    // Base feature.
-    implementation project(':base')
+    // When configured, include jar files in libs folder.
+    // TODO-BUILD: If you use /libs/*.jar, change this configuration.
+    // implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Main feature.
-    implementation project(':feature_main')
+    // Kotlin library.
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-    // Settings feature.
-    implementation project(':feature_settings')
+    // Android instant apps.
+    api project(':base')
+
+    // Test libraries.
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$test_espresso", {
+        exclude group: "com.android.support', module: 'support-annotations"
+    })
+    testImplementation "junit:junit:$test_junit"
 }

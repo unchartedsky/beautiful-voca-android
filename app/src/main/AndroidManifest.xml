@@ -1,2 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="richard.pe.voca.app" />
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pe.richard.voca.app" />

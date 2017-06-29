@@ -5,7 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/beautiful-voca-android.iml" filepath="$PROJECT_DIR$/beautiful-voca-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/feature/feature.iml" filepath="$PROJECT_DIR$/feature/feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature_main/feature_main.iml" filepath="$PROJECT_DIR$/feature_main/feature_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature_settings/feature_settings.iml" filepath="$PROJECT_DIR$/feature_settings/feature_settings.iml" />
       <module fileurl="file://$PROJECT_DIR$/instantapp/instantapp.iml" filepath="$PROJECT_DIR$/instantapp/instantapp.iml" />
     </modules>
   </component>

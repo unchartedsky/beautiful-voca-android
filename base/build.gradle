@@ -1,29 +1,61 @@
+// Android instant apps base module build file:
+// https://developer.android.com/topic/instant-apps/getting-started/structure.html?hl=ko
+// 2017.06.29. Richard.
+
 apply plugin: 'com.android.feature'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+
+    // Compile.
+    compileSdkVersion rootProject.ext.sdk_target
+
+    // Build tools.
+    buildToolsVersion rootProject.ext.build_tools
+
+    // Base feature for Android instant apps.
     baseFeature true
+
+    // Default config.
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.sdk_min
+        targetSdkVersion rootProject.ext.sdk_target
+        versionCode rootProject.ext.application_version_code
+        versionName rootProject.ext.application_version
     }
+
+    // Build options.
     buildTypes {
+
+        // Debug.
+        debug {
+            minifyEnabled false
+
+            // Using BuildConfig.KEY in android source.
+            // buildConfigField "String", "KEY", '"DEBUG_VALUE"'
+        }
+
+        // Release.
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // Using BuildConfig.KEY in android source.
+            // buildConfigField "String", "KEY", '"RELEASE_VALUE"'
         }
     }
 }
 
 dependencies {
+
+    // Android instant apps.
     application project(':app')
-    feature project(':feature')
-    implementation 'com.android.support:appcompat-v7:25.+'
-    api 'com.android.support:appcompat-v7:25.4.0'
-    api 'com.android.support:support-v4:25.4.0'
-    api 'com.android.support:design:25.4.0'
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    feature project(':feature_main')
+    feature project(':feature_settings')
+
+    // Android support libraries.
+    implementation "com.android.support:appcompat-v7:$android_support"
+    api "com.android.support:appcompat-v7:$android_support"
+    api "com.android.support:support-v4:$android_support"
+    api "com.android.support:design:$android_support"
+    api "com.android.support.constraint:constraint-layout:$android_support_constraint"
 }

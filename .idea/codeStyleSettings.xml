@@ -33,6 +33,11 @@
         <option name="RIGHT_MARGIN" value="100" />
         <AndroidXmlCodeStyleSettings>
           <option name="USE_CUSTOM_SETTINGS" value="true" />
+          <option name="MANIFEST_SETTINGS">
+            <value>
+              <option name="INSERT_LINE_BREAK_BEFORE_NAMESPACE_DECLARATION" value="true" />
+            </value>
+          </option>
         </AndroidXmlCodeStyleSettings>
         <Objective-C-extensions>
           <file>
@@ -223,6 +228,6 @@
         </codeStyleSettings>
       </value>
     </option>
-    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="beautiful-voca-android" />
   </component>
 </project>

@@ -1,21 +1,54 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+// 2017.06.29. Richard.
 
 buildscript {
-    ext.kotlin_version = '1.1.3'
+
+    // Constants for gradle.
+    // TODO-BUILD: If you change build setting, change this configuration.
+    project.ext {
+
+        // Gradle version.
+        gradle_version = '3.0.0-alpha4'
+
+        // Kotlin version.
+        kotlin_version = '1.1.3'
+
+        // Android build constants.
+        build_tools = '26.0.0'
+        sdk_target = 26 // Android O v8.0
+        sdk_min = 23 // Android Marshmallow v6.0
+        android_support = '25.4.0'
+        android_support_constraint = '1.0.2'
+
+        // Android test constants.
+        test_espresso = '2.2.2'
+        test_junit = '4.12'
+
+        // Application constants.
+        application = 'pe.richard.voca'
+        application_version = '1.0.0.0'
+        application_version_code = 1
+    }
+
+    // Build script repositories.
     repositories {
         google()
         jcenter()
     }
+
+    // Build script dependencies.
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
+        classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // NOTE: Do not place your application dependencies here;
+        // they belong in the individual module build.gradle files
     }
 }
 
 allprojects {
+
+    // Project repositories.
     repositories {
         google()
         jcenter()
@@ -23,6 +56,7 @@ allprojects {
     }
 }
 
+// Remove cache at clean task.
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

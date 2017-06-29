@@ -1,6 +1,17 @@
+// Android instant apps module build file:
+// https://developer.android.com/topic/instant-apps/getting-started/structure.html?hl=ko
+// 2017.06.29. Richard.
+
 apply plugin: 'com.android.instantapp'
 
 dependencies {
-    implementation project(':feature')
+
+    // Base feature.
     implementation project(':base')
+
+    // Main feature.
+    implementation project(':feature_main')
+
+    // Settings feature.
+    implementation project(':feature_settings')
 }

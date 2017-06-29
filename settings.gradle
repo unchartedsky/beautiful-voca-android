@@ -1,1 +1,8 @@
-include ':feature', ':app', ':base', ':instantapp'
+// Gradle configuration.
+// 2017.06.29. Richard.
+
+include ':app'
+include ':instantapp'
+include ':base'
+include ':feature_main'
+include ':feature_settings'
