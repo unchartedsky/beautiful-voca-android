@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="richard.pe.voca.feature">
+          package="richard.pe.voca.feature">
 
     <application>
         <activity
             android:name="richard.pe.voca.feature.MainActivity"
+            android:autoVerify="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:order="1">
@@ -13,14 +14,20 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
+                <!-- Accepts URIs that begin with "https://voca.richard.pe/” -->
                 <data
-                    android:host="pe.richard.voca"
+                    android:host="voca.richard.pe"
                     android:pathPattern="/.*"
                     android:scheme="https" />
+
+                <!-- Accepts URIs that begin with "voca://voca.richard.pe/” -->
+                <data
+                    android:host="voca.richard.pe"
+                    android:pathPattern="/.*"
+                    android:scheme="voca" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
