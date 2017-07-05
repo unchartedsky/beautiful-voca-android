@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">Beautiful Voca</string>
-
-    <!-- Deep link URL -->
-    <string name="deep_link_main">https://voca.richard.pe/</string>
-    <string name="deep_link_settings">https://voca.richard.pe/settings/</string>
 </resources>

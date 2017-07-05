@@ -3,6 +3,8 @@
 // 2017.06.29. Richard.
 
 apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
 
@@ -47,15 +49,19 @@ android {
 
 dependencies {
 
-    // Android instant apps.
-    application project(':app')
-    feature project(':feature_main')
-    feature project(':feature_settings')
+    // Kotlin library.
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     // Android support libraries.
-    implementation "com.android.support:appcompat-v7:$android_support"
+    api "com.android.support:appcompat-v7:$android_support"
     api "com.android.support:appcompat-v7:$android_support"
     api "com.android.support:support-v4:$android_support"
     api "com.android.support:design:$android_support"
     api "com.android.support.constraint:constraint-layout:$android_support_constraint"
+    api "com.google.android.instantapps:instantapps:$android_instant_apps"
+
+    // Android instant apps.
+    application project(':app')
+    feature project(':feature_main')
+    feature project(':feature_settings')
 }

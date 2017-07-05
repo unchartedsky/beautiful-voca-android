@@ -1,16 +1,16 @@
 package pe.richard.voca.feature.main
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
-import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+
+import pe.richard.voca.extensions.DeepLinks
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        Log.e("MainActivity", "${intent.data}")
     }
 
     override fun onBackPressed() {
@@ -50,18 +52,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here.
+        // The action bar will automatically handle clicks on the Home/Up button,
+        // so long as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> {
-                val intent = Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(resources.getString(pe.richard.voca.R.string.deep_link_settings)))
-                intent.setPackage(packageName)
-                intent.addCategory(Intent.CATEGORY_BROWSABLE)
-
-                startActivity(intent)
+                startActivity(DeepLinks.newIntent(this, "https://voca.richard.pe/settings/?key1=value1&key1=value1"))
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

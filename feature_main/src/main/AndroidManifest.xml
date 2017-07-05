@@ -8,25 +8,31 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter
                 android:autoVerify="true"
                 android:order="100">
                 <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Accepts URIs that begin with "https://voca.richard.pe/” -->
                 <data
                     android:host="voca.richard.pe"
                     android:pathPattern="/.*"
                     android:scheme="https" />
+            </intent-filter>
 
-                <!-- Accepts URIs that begin with "voca://voca.richard.pe/” -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Accepts URIs that begin with "voca://voca.richard.pe/main/” -->
                 <data
                     android:host="voca.richard.pe"
-                    android:pathPattern="/.*"
+                    android:pathPrefix="/main"
                     android:scheme="voca" />
             </intent-filter>
 
@@ -34,7 +40,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

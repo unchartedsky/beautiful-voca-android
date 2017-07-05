@@ -5,6 +5,9 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 
 import kotlinx.android.synthetic.main.activity_settings.*
+import android.content.Intent
+import android.util.Log
+
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -31,5 +34,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        Log.e("SettingsActivity", "${intent.data}")
     }
 }
